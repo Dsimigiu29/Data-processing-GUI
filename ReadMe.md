@@ -10,4 +10,3 @@ Developed with Python a GUI with a wide range of functionalities:
 -----   INSTRUCTIONS   -----
 
 You can find the csv file in this repository named as "csvFile.csv" and upload it as soon as the application asks you to.
-Additionally, you can find the code used for the arduino driver to send data named as "arduCode". Connect it to your device and change the port in the code.
