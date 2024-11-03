@@ -7,4 +7,6 @@ Developed with Python a GUI with a wide range of functionalities:
 •Establishing connection and transmitting data with external drivers (such as Arduino)                                                                                      
 •Programming: Python and Multithreading                                                                                                                                     
 
+-----   INSTRUCTIONS   -----
+
 
