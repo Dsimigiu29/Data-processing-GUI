@@ -11,14 +11,14 @@ import threading
 import queue
 from PIL import Image, ImageTk
 
-filePath = filedialog.askopenfilename(initialdir="C:/Users/Dani/Downloads", title="Select a CSV file", filetypes=[("CSV Files", "*.csv")]) # The file path for the CSV file that will be selected by the user
+filePath = filedialog.askopenfilename(initialdir= "insert here the path", title="Select a CSV file", filetypes=[("CSV Files", "*.csv")]) # The file path for the CSV file that will be selected by the user
 
 class MyApp:
     def __init__(self, root):
 
         # root Initialization + title and resolution 
         self.root = root
-        self.root.title("Simigiu Daniel - Python project") # title
+        self.root.title("Data processing GUI") # title
         self.root.geometry("800x600") # the interface's resolution when starting the app
 
         # text widget for data display
@@ -54,7 +54,7 @@ class MyApp:
 
 
     def minigame(self):
-        # Clear the content of the text_widget to prepare the space for the game
+        # Clears the content of the text_widget to prepare the space for the game
         self.text_widget.delete(1.0, tk.END)
 
         # Generates two random numbers from 1 to 9 for the game
