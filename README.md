@@ -1,4 +1,4 @@
-# Python-Gui
+# Data-processing-GUI
 Developed with Python a GUI with a wide range of functionalities:                                                                                                           
 •CSV parsing for extracting data parameters                                                                                                                                 
 •Graph creation for data visualization                                                                                                                                      
