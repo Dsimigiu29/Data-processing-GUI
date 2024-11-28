@@ -26,8 +26,8 @@ class MyApp:
         self.text_widget.grid(column=2, row=1, sticky=(N, W, E, S)) 
 
         # Button 2 - math game
-        self.buton2 = tk.Button(root, text="Math Minigame", command=self.minigame)
-        self.buton2.grid(column=1, row=0, sticky=(N, W, E, S))
+        self.button2 = tk.Button(root, text="Math Minigame", command=self.minigame)
+        self.button2.grid(column=1, row=0, sticky=(N, W, E, S))
 
         # displays a message in the text widget
         self.text_widget.insert(tk.END, "To access the apps features you will need to solve a quick minigame")
@@ -65,8 +65,8 @@ class MyApp:
         self.text_widget.insert(tk.END, f"{self.nr1} + {self.nr2} ? \n")
 
         # Creates a widget where to insert the response number
-        raspuns = tk.Entry(self.root)
-        raspuns.grid(column=1, row=1, sticky=(N, W, E))
+        answer = tk.Entry(self.root)
+        answer.grid(column=1, row=1, sticky=(N, W, E))
 
         # Calculates the correct answer to the game
         result = self.nr1 + self.nr2
@@ -75,7 +75,7 @@ class MyApp:
         def submit_answer():
             
             # Extracts the answer and converts into an integer
-            responseValue = int(raspuns.get())
+            responseValue = int(answer.get())
 
             # Verifing if the answer is correct
             if responseValue == result:
@@ -109,8 +109,8 @@ class MyApp:
                 self.text_widget.insert(tk.END, "Snake, are you ok? Snake?! SNAAAAAKE    Try again\n") # metal gear solid reference
 
         # Generates the 'OK' button and associates it with the submit_answer function
-        butonOk = tk.Button(self.root, text="OK", command=submit_answer)
-        butonOk.grid(column=1, row=1, sticky=(N, E))
+        okButton = tk.Button(self.root, text="OK", command=submit_answer)
+        okButton.grid(column=1, row=1, sticky=(N, E))
 
     
     def TcpLive(self):
@@ -142,10 +142,10 @@ class MyApp:
 
         # Function to write data to a CSV file
         def csvRead():
-            with open('pentruGrafic.csv', 'a', newline='') as cit:
-                scriere = csv.writer(cit, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            with open('forTheGraph.csv', 'a', newline='') as cit:
+                writer = csv.writer(cit, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
                 for i in range(5000):
-                    scriere.writerow([i, fct()])
+                    writer.writerow([i, fct()])
 
         # Created 3 threads for serverTCP
         thread1 = threading.Thread(target=serverTCP)
@@ -252,11 +252,11 @@ class MyApp:
         plt.xticks([0, 49, 99])
 
         plt.figure(3)
-        plt.plot(indexData, speedData1, label='Viteza 1')
-        plt.plot(indexData, speedData2, label='Viteza 2')
+        plt.plot(indexData, speedData1, label='Speed 1')
+        plt.plot(indexData, speedData2, label='Speed 2')
         plt.xlabel('Index')
-        plt.ylabel('Viteza')
-        plt.title('Grafic nr. 3: Viteze')
+        plt.ylabel('Speed')
+        plt.title('Graph no. 3: Speeds')
         plt.legend()
         plt.xticks([0, 20, 40, 60, 80, 99])
         plt.yticks([0, 20, 40, 60, 80], [0, 20, 40, 60, 80])
@@ -289,14 +289,14 @@ class MyApp:
 
         # Opens the file specified in filePath and iterates through it using csv.reader
         with open(filePath) as file:
-            cititorCsv = csv.reader(file)
+            csvReader = csv.reader(file)
             temperatures = []
             humidities = []
             speeds = []
             presences = []
 
             # Iterates through each row of the CSV file
-            for row in cititorCsv:
+            for row in csvReader:
                 # Extracts the corresponding values from each column 
                 index, temperature1, temperature2, temperature3, temperature4, temperature5, humidity1, humidity2, humidity3, speed1, speed2, presence1, presence2 = row
 
